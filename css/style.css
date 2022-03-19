@@ -173,6 +173,8 @@ img
 #portfolio-3
 {
 	background-image: url(../img/zi.jpg);
+	background-repeat: repeat-x;
+	background-color: #f9bf3b;
 	background-position: center top;
 }
 
