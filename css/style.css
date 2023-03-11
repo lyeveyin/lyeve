@@ -4,8 +4,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background-color:	#696969;
+  padding: 20px;
+  background-color: #696969;
 }
 
 .title {
@@ -184,19 +184,11 @@ a
 {    position: relative;
     width: 100px;
     height: 100px;
-    margin-right: 0px;
-    margin-bottom: 0px;
+    margin-right: 10px;
+    margin-bottom: 10px;
     float: left;
     background-image: url("https://notion-avatar.vercel.app/api/svg/eyJmYWNlIjowLCJub3NlIjo0LCJtb3V0aCI6NSwiZXllcyI6OCwiZXllYnJvd3MiOjgsImdsYXNzZXMiOjEyLCJoYWlyIjoyNCwiYWNjZXNzb3JpZXMiOjAsImRldGFpbHMiOjksImJlYXJkIjowLCJmbGlwIjowLCJjb2xvciI6IiNmZWYxOWYiLCJzaGFwZSI6InNxdWFyZSJ9");
 background-size:cover;}
-div {
-    display: block;
-}
-
-body
-{
-	margin: 0px;
-}
 
 #design-portfolio-cloud
 {
