@@ -247,4 +247,11 @@ footer
 
 
 
-
+/* 鼠标悬停样式 */
+	body {
+			cursor: url("media/frown.gif"), auto;
+		}
+		.highlight {
+			cursor: url("media/bigsmile.gif"), auto;
+		
+		}
