@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+    <title>LYEVE'S IDOLS</title>
+    <link rel="stylesheet" type="text/css" href="css/starstyle.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+  integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <script src="js/star.js"></script>
+</head>
+
+<body>
+   <div class="draggable-button" draggable="true">MORE</div>
+
+	<!-- 页眉内容 -->
+	<header>
+	<div class="logo"></div><div id="title-lyeve" class="title" _msthash="176254" _msttexthash="25261886">LYEVE | IDOLS AND FANS</div>
+	<div class="social-media-icons">
+        <a href="https://github.com/lyeveyin">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://lyeveyin.github.io/lyeve/">
+          <i class="fab fa-blogger-b"></i>
+        </a>
+        <a href="https://www.instagram.com/lyeve1998/?hl=zh-cn">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+	</header>
+	<!-- 侧边栏内容 -->
+	<div class="sidebar">
+    <h3>Sidebar Content</h3>
+    <p>GALLERY</p>
+	<p>NOTICE</p>
+	<p>VIDEO</p>
+  </div>
+ 	<!-- 正文内容 -->
+  	<div class="main-content">
+	<!-- 第一排 -->
+    <div class="card-container" style="background-image: url('img/svt.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+ <p class="text"><a href="https://www.pledis.co.kr/html/artist/seventeen/CHN">Seventeen</a></p>
+	<div class="card-row">
+        <div class="card" onclick="toggleCard(this)">
+            <div class="card-front">
+                <img src="img/svt.jpg" alt="SVT Card">
+                <p class="card-text">S.COUPS</p>
+            </div>
+            <div class="card-back">
+                <img src="img/svt1.jpg" alt="SVT Card">
+				<p class="card-text">次队</p>
+            </div>
+        </div>
+		<div class="card" onclick="toggleCard(this)">
+            <div class="card-front">
+                <img src="img/svt4.jpg" alt="SVT Card">
+                <p class="card-text">文俊辉</p>
+            </div>
+            <div class="card-back">
+                <img src="img/svt4.jpg" alt="SVT Card">
+				<p class="card-text">文俊辉</p>
+            </div>
+        </div>
+        <div class="card" onclick="toggleCard(this)">
+            <div class="card-front">
+                <img src="img/svt8.jpg" alt="SVT Card">
+                <p class="card-text">徐明浩</p>
+            </div>
+            <div class="card-back">
+                <img src="img/svt8.jpg" alt="SVT Card">
+				<h>THE 8 </h>
+				<p>外号小八，中国成员</p>
+            </div>
+        </div>
+    </div>
+	
+	    </div>
+	<!-- 第二排 -->
+    <div class="card-container">
+	<div class="card-row">
+        <div class="card" onclick="toggleCard(this)">
+            <div class="card-front">
+                <img src="img/svt.jpg" alt="SVT Card">
+                <p class="card-text">svt</p>
+            </div>
+            <div class="card-back">
+                <img src="img/svt1.jpg" alt="SVT Card">
+            </div>
+        </div>
+        <div class="card" onclick="toggleCard(this)">
+            <div class="card-front">
+                <img src="img/got7.jpg" alt="GOT7 Card">
+                <p class="card-text">got7</p>
+            </div>
+            <div class="card-back">
+                <img src="img/got7_1.jpg" alt="GOT7 Card">
+            </div>
+        </div>
+    </div>
+    </div>
+	<!-- 第三排 -->
+    <div class="card-container">
+	<div class="card-row">
+        <div class="card" onclick="toggleCard(this)">
+            <div class="card-front">
+                <img src="img/svt.jpg" alt="SVT Card">
+                <p class="card-text">svt</p>
+            </div>
+            <div class="card-back">
+                <img src="img/svt1.jpg" alt="SVT Card">
+            </div>
+        </div>
+        </div>
+    </div>
+	</div>
+	<script>
+    // 获取拖动按钮元素和分栏元素
+    const draggableButton = document.querySelector('.draggable-button');
+    const sidebar = document.querySelector('.sidebar');
+
+    // 鼠标按下时记录初始位置
+    let startX, startY;
+    draggableButton.addEventListener('mousedown', (e) => {
+      startX = e.clientX - draggableButton.offsetLeft;
+      startY = e.clientY - draggableButton.offsetTop;
+    });
+
+    // 拖动按钮
+    document.addEventListener('mousemove', (e) => {
+      e.preventDefault();
+      if (startX && startY) {
+        draggableButton.style.left = `${e.clientX - startX}px`;
+        draggableButton.style.top = `${e.clientY - startY}px`;
+      }
+    });
+
+    // 释放鼠标时停止拖动
+    document.addEventListener('mouseup', () => {
+      startX = null;
+      startY = null;
+    });
+
+    // 点击按钮时切换分栏的显示状态
+    draggableButton.addEventListener('click', () => {
+      sidebar.classList.toggle('show');
+    });
+  </script>	
+</body>
+</html>
