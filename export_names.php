@@ -20,7 +20,7 @@ $html = <<<HTML
 
 <header>
     <div class="logo"></div>
-    <div id="title-lyeve" class="title" _msthash="176254" _msttexthash="25261886">LYEVE | IDOLS AND FANS</div>
+    <div id="title-lyeve" class="title" _msthash="176254" _msttexthash="25261886">LYEVE | GALLERY</div>
     <div class="social-media-icons">
         <a href="https://github.com/lyeveyin">
             <i class="fab fa-github"></i>
@@ -41,15 +41,17 @@ $html = <<<HTML
 			</div>
  <div class="menu">
  
-        <button class="menu-button" data-filter="BlockB">BlockB</button>
-		<button class="menu-button" data-filter="P.O">P.O</button>
-		<button class="menu-button" data-filter="Seventeen">Seventeen</button>
-        <button class="menu-button" data-filter="Got7">Got7<button>
+        <button class="menu-button" data-filter="四川">四川</button>
+		<button class="menu-button" data-filter="重庆">重庆</button>
+        <button class="menu-button" data-filter="安徽">安徽</button>
+		<button class="menu-button" data-filter="深圳">深圳</button>
 </div>
  <div class="menu">		
-		<button class="menu-button" data-filter="男团">男团</button>
-        <button class="menu-button" data-filter="女团">女团</button>        
-		<button class="menu-button" data-filter="单人">单人</button>
+		<button class="menu-button" data-filter="风景">风景</button>
+        <button class="menu-button" data-filter="人文">人文</button>        
+		<button class="menu-button" data-filter="静物">静物</button>
+		<button class="menu-button" data-filter="建筑">建筑</button>
+		<button class="menu-button" data-filter="展品">展品</button>
 	</div>
 
 <div class="draggable-button" draggable="true">MORE</div>
@@ -72,13 +74,12 @@ foreach ($nameList as $index => $name) {
     $describe = isset($describeList[$index]) ? $describeList[$index] : '';
 	$tag = isset($tagList[$index]) ? $tagList[$index] : '';
 
-    if ($index < 9999) {
+    if ($index < 1000) {
         $html .= <<<CARD
         <div class="card" data-tags="{$tag}" onclick="toggleCard(this)">
-                <img src="img/idol2/{$photo}" alt="Card">
+                <img src="img/gallery/{$photo}" alt="Card">
                 <h3>{$name}</h3>
-                <p>{$tag}</p>
-				<p>{$describe}</p>
+                <p>{$tag}, {$describe}</p>
         </div>
            
 CARD;
