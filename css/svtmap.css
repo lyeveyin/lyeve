@@ -1,0 +1,319 @@
+/* 1. 字体和基本布局 */
+@font-face {
+    font-family: 'SVTFont';
+    src: url('fonts/svt1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'SVTFont', sans-serif;
+}
+
+/* 2. 地图容器 - 最底层 */
+#map {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 0; /* 地图处于最底层 */
+    transition: filter 0.3s ease; /* 增加平滑过渡效果 */
+}
+
+/* 给地图加模糊效果 */
+#map.blur {
+    filter: blur(5px); /* 设定模糊效果 */
+}
+
+/* 3. 弹窗内容 - 最上层 */
+.custom-popup .leaflet-popup-content-wrapper,
+.custom-popup .leaflet-popup-content,
+.custom-popup {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    z-index: 1003 !important; /* 弹窗内容处于最上层 */
+}
+
+/* 6. 筛选面板 - 最上层 */
+#filter-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1003; /* 筛选面板位于地图和遮罩层之上 */
+    display: none; /* 默认隐藏筛选面板 */
+    width: 500px;
+    overflow-y: auto;
+    cursor: move; /* 可拖动 */
+    transition: transform 0.3s ease; /* 动画效果 */
+}
+
+
+.filter-panel-left {
+    display:block;
+}
+
+/* 7. 筛选面板复选框 - 每行4个 */
+.filter-options {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 每行 5 个复选框 */
+    gap: 8px; /* 间隔 */
+    margin-bottom: 20px;
+}
+
+
+/* 9. 筛选面板复选框样式 */
+.filter-options input[type="checkbox"] {
+    margin-right: 10px;
+    width: auto;
+}
+
+/* 10. 筛选面板标签 */
+.filter-options label {
+    font-size: 16px;
+    margin-bottom: 10px;
+
+}
+
+
+
+/* 12. 左下和右下角圆形按钮 */
+
+#filter-circle {
+    right: 20px;
+}
+
+#info-circle {
+    left: 20px;
+}
+.circle-button {
+    position: fixed;
+    bottom: 20px;
+    background: rgba(255, 255, 255, 0.7); /* 半透明白色 */
+    color: #333;
+    border-radius: 50%;
+    padding: 20px;
+    z-index: 1003; /* 滤镜按钮最上层 */
+    cursor: pointer;
+    font-size: 32px; /* 增大字体 */
+    display: block; /* 初始状态显示 */
+    width: 70px; /* 增大圆形按钮的尺寸 */
+    height: 70px; /* 增大圆形按钮的尺寸 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 圆形按钮的阴影 */
+    transition: background 0.3s ease, transform 0.3s ease; /* 平滑过渡 */
+}
+
+/* 13. 圆形按钮悬停效果 */
+.filter-circle-button:hover ,.info-circle-button:hover{
+    background: rgba(255, 255, 255, 1); /* 鼠标悬停时变为不透明白色 */
+    transform: scale(1.1); /* 按钮放大效果 */
+}
+
+
+/* 14. 清空筛选按钮 */
+#clear-filters {
+    background: linear-gradient(145deg, #ff81cc, #69a7ff); /* 粉蓝渐变背景 */
+    color: white;
+    border: none;
+    border-radius: 25px; /* 圆角 */
+    padding: 12px 0; /* 内边距调整 */
+    cursor: pointer;
+    width: 100%;
+    margin: 10px 0;
+}
+
+
+
+/* 信息面板样式 */
+.panel {
+    position: absolute;
+    top: 80px; /* 面板距离顶部 */
+    left: 0;
+    width: 500px; /* 增大面板宽度，容纳三列卡片 */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    overflow-y: auto;
+    z-index: 100;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/* 卡片内容容器，使用 Grid 布局来支持三列排列 */
+.info-card-container {
+    display: block;
+    column-count: 3;
+    gap: 5px; /* 卡片之间的间隔 */
+    padding: 10px;
+    box-sizing: border-box;
+}
+/* 4. 弹出卡片内容 */
+.info-card {
+    width: 500px;
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: 'SVTFont', sans-serif;
+
+    z-index: 1003; /* 确保卡片位于弹窗内容最上层 */
+    overflow: auto;
+    transition: transform 0.3s ease-in-out;
+}  
+.info-card:hover {
+    transform: scale(1.05); /* 增加卡片悬停效果 */
+}
+#info-card-left {
+    width: 100%;
+    padding: 5px;
+    background-color: #fff;
+    box-sizing: border-box;
+} 
+/* 5. 弹窗图片展示 */
+.popup-photo-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.popup-photo {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+
+
+
+.info-photo-container img {
+    width: 100%; /* 图片自适应卡片宽度 */
+}
+
+
+
+
+/* 信息面板头部样式 */
+.info-panel-header {
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+/* 关闭按钮样式 */
+.close-btn {
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+.close-btn:hover {
+    color: #ff0000; /* 鼠标悬停时变成红色 */
+}
+
+h4 {
+    font-size: 20px;
+    margin: 0;
+}
+
+/* 18. 按钮样式 */
+button {
+    padding: 6px;
+    font-size: 12px; /* 缩小按钮字体 */
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+button:hover {
+    background-color: #005f7f;
+}
+
+/* 19. 过滤器按钮的显示和隐藏动画 */
+#filter-circle {
+    transition: background 0.3s ease, transform 0.3s ease; /* 平滑过渡效果 */
+}
+
+/* 20. 浮动按钮的位置和样式 */
+#filter-circle, #info-circle {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+/* 22. 弹窗和卡片按钮在点击时的过渡效果 */
+.info-card button {
+    transition: background-color 0.3s ease;
+}
+
+.info-card button:hover {
+    background-color: #005f7f;
+}
+
+/* 23. 信息卡片详细信息区域 */
+.info-card .details {
+    display: none; /* 默认隐藏详细信息 */
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+.info-card button.show-details {
+    background-color: #00aaff;
+    color: white;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.info-card button.show-details:hover {
+    background-color: #007bb5;
+}
+
+/* 24. 高亮显示卡片 */
+.panel-card.highlight {
+    background-color: #ffeb3b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 25. 弹窗背景遮罩 */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1002; /* 弹窗背景层 */
+    display: none; /* 默认隐藏 */
+}
+
+/* 26. 显示或隐藏面板的过渡效果 */
+.panel.show, .info-panel.show {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.panel.hide, .info-panel.hide {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣地巡礼地图</title>
+    <link rel="stylesheet" href="css/svtmap.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+</head>
+<body>
+    <!-- 初始化地图 -->
+    <div id="map" class="map"></div>
+    <div id="blur-overlay" class="blur-overlay"></div> <!-- 遮罩层 -->
+        <!-- 右下角的筛选按钮 -->
+        <div id="filter-circle" aria-label="打开筛选面板" class="circle-button"></div>
+    
+        <!-- 左下角的信息按钮 -->
+        <div id="info-circle" class="circle-button"></div>
+    <!-- 筛选面板 -->
+    <div id="filter-panel" class="filter-panel">
+        <div class="filter-header">
+            <label for="filter">选择标签:</label>
+            <div id="close-filter-panel" class="close-btn" aria-label="关闭筛选面板">×</div>
+        </div>
+        <div class="filter-options">
+<label for="SVT"><input type="checkbox" value="SVT" id="SVT" aria-labelledby="SVT-label"> SVT</label>
+
+            <label><input type="checkbox" value="崔胜澈"> 崔胜澈</label>
+            <label><input type="checkbox" value="尹净汉"> 尹净汉</label>
+            <label><input type="checkbox" value="洪知秀"> 洪知秀</label>
+            <label><input type="checkbox" value="文俊辉"> 文俊辉</label>
+            <label><input type="checkbox" value="权顺荣"> 权顺荣</label>
+            <label><input type="checkbox" value="全圆佑"> 全圆佑</label>
+            <label><input type="checkbox" value="李知勋"> 李知勋</label>
+            <label><input type="checkbox" value="徐明浩"> 徐明浩</label>
+            <label><input type="checkbox" value="金珉奎"> 金珉奎</label>
+            <label><input type="checkbox" value="李硕珉"> 李硕珉</label>
+            <label><input type="checkbox" value="夫胜宽"> 夫胜宽</label>
+            <label><input type="checkbox" value="崔瀚率"> 崔瀚率</label>
+            <label><input type="checkbox" value="李灿"> 李灿</label>
+        </div>
+        <div class="filter-footer">
+            <button id="clear-filters" class="clear-filters" aria-label="清空所有筛选">清空筛选</button>
+        </div>
+    </div>
+
+
+
+    <!-- 地点信息面板 -->
+    <div id="info-panel" class="panel">
+        <!-- 面板内容会在 JavaScript 中动态生成 -->
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="js/svtmap.js"></script>
+</body>
+</html>
