@@ -31,17 +31,17 @@ var mapboxLayer = L.tileLayer('https://api.mapbox.com/styles/v1/lyeve/cm31xfnzi0
 
 // 定义地点信息
 var locations = [    
-    { lat: 37.5021, lng: 127.0250, title: "itp", description: "打卡itp公司", photos: ["images/itp.jpg"], label: "SVT", color: "blue" },
-    { lat: 37.5247, lng: 126.9640, title: "HYBE", description: "HYBE", photos: ["images/HYBE.jpg"], label: "SVT", color: "blue" },
-    { lat: 22.15395, lng: 113.5587, title: "澳门嘉模斜巷", description: "小八跳舞", photos: ["images/澳门嘉模斜巷.jpg"], label: "徐明浩", color: "green" },
-    { lat: 37.5459, lng: 127.0401, title: "小八首尔林长椅", description: "小八首尔林椅子", photos: ["images/小八首尔林长椅.jpg"], label: "徐明浩", color: "green" },
-    { lat: 22.5295, lng: 114.0240, title: "圣地 1", description: "这是圣地 1 的描述", photos: ["images/photo1.jpg"], label: "徐明浩", color: "green" },
-    { lat: 22.5295, lng: 114.0240, title: "DK同款香水", description: "DK同款香水——granhand", photos: ["images/DK同款香水.jpg"], label: "李硕珉", color: "black" },
-    { lat: 37.5242, lng: 126.9643, title: "宇宙工厂", description: "宇宙工厂", photos: ["images/宇宙工厂.jpg"], label: "李知勋", color: "white" },
-    { lat: 22.1479, lng: 113.5641, title: "顺荣大马路", description: "顺荣大马路", photos: ["images/顺荣大马路.jpg"], label: "权顺荣", color: "yellow" },
-    { lat: 37.5470, lng: 127.0410, title: "胜宽布丁", description: "胜宽布丁", photos: ["images/胜宽布丁.jpg"], label: "夫胜宽", color: "brown" },
-    { lat: 37.5126, lng: 127.0588, title: "胜宽图书馆", description: "胜宽图书馆", photos: ["images/胜宽图书馆.jpg"], label: "夫胜宽", color: "brown" },
-    { lat: 37.5416, lng: 127.0484, title: "崔胜澈圣水洞同款面板", description: "崔胜澈圣水洞同款面板", photos: ["images/崔胜澈圣水洞同款面板.jpg"], label: "崔胜澈", color: "red" },
+    { lat: 37.5021, lng: 127.0250, title: "itp", description: "打卡itp公司", photos: ["img/svtmap/itp.jpg"], label: "SVT", color: "blue" },
+    { lat: 37.5247, lng: 126.9640, title: "HYBE", description: "HYBE", photos: ["img/svtmap/HYBE.jpg"], label: "SVT", color: "blue" },
+    { lat: 22.15395, lng: 113.5587, title: "澳门嘉模斜巷", description: "小八跳舞", photos: ["img/svtmap/澳门嘉模斜巷.jpg"], label: "徐明浩", color: "green" },
+    { lat: 37.5459, lng: 127.0401, title: "小八首尔林长椅", description: "小八首尔林椅子", photos: ["img/svtmap/小八首尔林长椅.jpg"], label: "徐明浩", color: "green" },
+    { lat: 22.5295, lng: 114.0240, title: "圣地 1", description: "这是圣地 1 的描述", photos: ["img/svtmap/photo1.jpg"], label: "徐明浩", color: "green" },
+    { lat: 22.5295, lng: 114.0240, title: "DK同款香水", description: "DK同款香水——granhand", photos: ["img/svtmap/DK同款香水.jpg"], label: "李硕珉", color: "black" },
+    { lat: 37.5242, lng: 126.9643, title: "宇宙工厂", description: "宇宙工厂", photos: ["img/svtmap/宇宙工厂.jpg"], label: "李知勋", color: "white" },
+    { lat: 22.1479, lng: 113.5641, title: "顺荣大马路", description: "顺荣大马路", photos: ["img/svtmap/顺荣大马路.jpg"], label: "权顺荣", color: "yellow" },
+    { lat: 37.5470, lng: 127.0410, title: "胜宽布丁", description: "胜宽布丁", photos: ["img/svtmap/胜宽布丁.jpg"], label: "夫胜宽", color: "brown" },
+    { lat: 37.5126, lng: 127.0588, title: "胜宽图书馆", description: "胜宽图书馆", photos: ["img/svtmap/胜宽图书馆.jpg"], label: "夫胜宽", color: "brown" },
+    { lat: 37.5416, lng: 127.0484, title: "崔胜澈圣水洞同款面板", description: "崔胜澈圣水洞同款面板", photos: ["img/svtmap/崔胜澈圣水洞同款面板.jpg"], label: "崔胜澈", color: "red" },
 
  
 ];
