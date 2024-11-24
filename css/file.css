@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Svt';
+    src: url('../fonts/svt.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Svt1';
+    src: url('../fonts/svt1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;}
+
+body {
+    font-family: 'Svt1', sans-serif; /* 使用自定义字体 */
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffb6c1, #add8e6);
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.folder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent; /* 去掉白底 */
+    border-radius: 10px;
+    padding: 20px;
+    width: 100px; /* 文件夹宽度 */
+    cursor: grab; /* 鼠标抓取手型 */
+    position: absolute; /* 使用绝对定位 */
+    transition: transform 0.1s; /* 拖动时的过渡效果 */
+    user-select: none; /* 禁止选择文本 */
+}
+
+.folder-name {
+    margin-top: 5px;
+    font-size: 14px;
+    text-align: center;
+    color: #666; /* 文件夹名称颜色 */
+}
+
+.folder-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M10 4H4C2.89 4 2 4.89 2 6v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V10l-8-6h-6z"/></svg>');
+    background-size: 100px 100px; /* 图标大小 */
+    width: 100px; /* 图标宽度 */
+    height: 100px; /* 图标高度 */
+    opacity: 0.5; /* 设置透明度 */
+}
+
+.dragging {
+    z-index: 10; /* 确保在其他元素之上 */
+}
+
+
+.modal {
+    display: none; /* 默认隐藏 */
+    position: fixed; /* 固定定位 */
+    z-index: 1000; /* 确保在其他元素之上 */
+    left: 0;
+    top: 0;
+    width: 100%; /* 全屏 */
+    height: 100%;
+    overflow: auto; /* 如果需要，可以滚动 */
+    background-color: rgba(179, 179, 179, 0.8); /* 半透明背景色 */
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.5); /* 半透明白色背景 */
+    backdrop-filter: blur(10px); /* 模糊背景 */
+    border-radius: 15px; /* 圆角 */
+    margin: 15% auto; /* 中心定位 */
+    padding: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); /* 阴影效果 */
+    width: 80%; /* 宽度 */
+}
+
+.close-button {
+    color: #aaa; /* 关闭按钮颜色 */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-body {
+    display: flex;
+    flex-wrap: wrap; /* 允许换行 */
+    justify-content: flex-start; /* 左对齐 */
+}
+
+.item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 10px; /* 外边距 */
+    width: calc(30% - 20px); /* 确保每个项目的宽度 */
+    max-width: 300px; /* 最大宽度 */
+    overflow: hidden; /* 避免溢出 */
+    transition: transform 0.1s; /* 添加过渡效果 */
+}
+
+.item:hover {
+    transform: scale(1.05); /* 悬停时放大 */
+}
+.concert-item, .album-item {
+    background: #fff; /* 背景色 */
+    border-radius: 10px; /* 圆角 */
+    box-shadow: 0 2px 5px rgba(48, 36, 36, 0.735); /* 阴影效果 */
+    margin: 10px; /* 外边距 */
+    width: calc(30% - 20px); /* 计算宽度，保持一定间隔 */
+    max-width: 300px; /* 最大宽度 */
+    overflow: hidden; /* 避免溢出 */
+    transition: transform 0.2s; /* 添加过渡效果 */
+}
+
+.concert-item img, .album-item img {
+    width: 100%; /* 使图像宽度填满容器 */
+    height: auto; /* 保持比例 */
+}
+
+.concert-item:hover, .album-item:hover {
+    transform: scale(1.1); /* 悬停时放大 */
+}
+
+
+#filter-input {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+/* 添加的 CSS 规则 */
+.filter-panel {
+    margin-bottom: 10px;
+}
+
+.filter-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    background: #0056b3;
+}
+
