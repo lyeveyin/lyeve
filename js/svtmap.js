@@ -41,7 +41,7 @@ var locations = [
     { lat: 22.1479, lng: 113.5641, title: "顺荣大马路", description: "顺荣大马路", photos: ["img/svtmap/顺荣大马路.jpg"], label: "权顺荣", color: "yellow" },
     { lat: 37.5470, lng: 127.0410, title: "胜宽布丁", description: "胜宽布丁", photos: ["img/svtmap/胜宽布丁.jpg"], label: "夫胜宽", color: "brown" },
     { lat: 37.5126, lng: 127.0588, title: "胜宽图书馆", description: "胜宽图书馆", photos: ["img/svtmap/胜宽图书馆.jpg"], label: "夫胜宽", color: "brown" },
-    { lat: 37.5416, lng: 127.0484, title: "崔胜澈圣水洞同款面板", description: "崔胜澈圣水洞同款面板", photos: ["img/svtmap/崔胜澈圣水洞同款面板.jpg"], label: "崔胜澈", color: "red" },
+    { lat: 37.5416, lng: 127.0484, title: "崔胜澈圣水洞同款面板", description: "崔胜澈圣水洞同款面板", photos: ["img/svtmap/崔胜澈圣水洞同款面板.JPG"], label: "崔胜澈", color: "red" },
 
  
 ];
